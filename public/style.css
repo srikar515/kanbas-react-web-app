@@ -29,10 +29,18 @@ body * {
     background-color: green;
  }
 
+ .wd-btn-bg-color {
+  background: #eeeeee;
+ }
+
 .wd-flex-row-container {
     display: flex;
     flex-direction: row;
   }
   .wd-flex-grow-1 {
     flex-grow: 1;
+  }
+
+  .wd-center-align {
+    text-align: center;
   }
