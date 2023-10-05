@@ -38,24 +38,173 @@
     <div class="d-block d-md-none">
       <div class="wd-flex-row-container">
         <div class="wd-flex-grow-1" style="background-color: black">
-          <div class="d-flex">
+          <div class="d-flex" style="justify-content: space-between; margin-right: 2px;">
 
-            <input type="checkbox" id="modal-toggle">
-            <label for="modal-toggle" class="open-modal"><i class="fa fa-bars" style="color:white; margin-left: 10px; margin-top: 12px"></i></label>
-            <div class="modal">
-              <div class="modal-content">
-                <label for="modal-toggle" class="close-modal">&#10005;</label>
-                <!-- Your modal content goes here -->
-                <p>This is your modal content.</p>
+            
+            <i class="fa fa-bars" style="color:white; margin-left: 10px; margin-top: 12px" data-toggle="modal" data-target="#myModal"></i>
+            
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="flex-direction: row-reverse;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="wd-kanbas-navigation1">
+                      <div class="modal-margin">
+                        <a href="/Kanbas/Account/Profile/index.html">
+                          <i class="fa fa-user-circle" style="color: black;"></i>
+                          Account
+                        </a>
+                      </div>
+                      <div class="modal-margin">
+                        <a href="/Kanbas/Dashboard/index.html">
+                          <i class="fa fa-tachometer" aria-hidden="true"></i>
+                          Dashboard</a
+                        >
+                        </div>
+                      <div class="modal-margin">
+                        <a href="/Kanbas/Courses/Home/home.html">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          Courses</a></div>
+                      <div class="modal-margin">
+                        <a href="/Kanbas/Calendar/screen.html">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                          Calendar
+                        </a>
+                      </div>
+                      <div class="modal-margin">
+                        <a href="#">
+                          <i class="fa fa-inbox"></i>
+                          Inbox
+                        </a>
+                      </div>
+                      
+                      <div class="modal-margin">
+                        <a href="#">
+                          <i class="fa fa-clock-o"></i>
+                          History
+                        </a>
+                      </div>
+                      <div class="modal-margin">
+                        <a href="#">
+                          <i class="fa fa-tv"></i>
+                          Studio
+                        </a>
+                      </div>
+                      <div class="modal-margin">
+                        <a href="#">
+                          <i class="fa fa-arrow-circle-o-right"></i>
+                          Commons
+                        </a>
+                      </div>
+                      <div class="modal-margin">
+                        <a href="#">
+                          <i class="fa fa-question-circle"></i>
+                          Help
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          
 
             <p style="color: white; margin-left: 25%; margin-top: 8px">
               CS 5610.12631.202410
             </p>
             <div class="float-end" style="margin-left: 22%">
               <i class="fa fa-glasses" style="color: white; margin-top: 12px"></i>
-              <i class="fa fa-chevron-down" style="color: white"></i>
+              <i class="fa fa-chevron-down" style="color: white" data-toggle="modal" data-target="#myModal1"></i>
+               
+              <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header" style="flex-direction: row-reverse;">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      
+                      <div class="wd-course-navigation1">
+                        <div class="course-modal"><i class="fa-solid fa-house"></i> <a style="color: red;" href="/Kanbas/Courses/Home/home.html">Home</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-crosshairs"></i> <a style="color: red;" href="/Kanbas/Courses/Modules/index.html">Modules</a></div>
+                        <div class="course-modal"><i class="fa-regular fa-lightbulb"></i> <a style="color: red;" href="#">Piazza</a></div>
+                        <div class="course-modal"><a style="color: red;" href="#">Zoom Meetings</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-video"></i> <a style="color: red;" href="/Kanbas/Courses/Assignments/index.html">Assignments</a>
+                        </div>
+                        <div class="course-modal"><i class="fa-solid fa-book"></i> <a style="color: red;" href="#">Quizzes</a></div>
+                        <div class="course-modal"><i class="fa-regular fa-paper-plane"></i> <a style="color: red;" href="/Kanbas/Courses/Grades/grades.html">Grades</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-person"></i> <a style="color: red;" href="#">People</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-film"></i> <a style="color: red;" href="#">Panopto Video</a></div>
+                        <div class="course-modal"><i class="fa-brands fa-discourse"></i> <a style="color: red;" href="#">Discussions</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-bullhorn"></i> <a style="color: red;" href="#">Announcements</a></div>
+                        <div class="course-modal"><i class="fa-regular fa-file"></i> <a style="color: red;" href="#">Pages</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-file-word"></i> <a style="color: red;" href="#">Files</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-puzzle-piece"></i> <a style="color: red;" href="#">Rubrics</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-bullseye"></i> <a style="color: red;" href="#">Outcomes</a></div>
+                        <div class="course-modal"><i class="fa-regular fa-circle"></i> <a style="color: red;" href="#">Collaborations</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-book"></i> <a style="color: red;" href="#">Syllabus</a></div>
+                        <div class="course-modal"><i class="fa-solid fa-gear"></i> <a style="color: red;" href="/Kanbas/Courses/Settings/index.html">Settings</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
