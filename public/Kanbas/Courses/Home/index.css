@@ -1,0 +1,55 @@
+.main-content-control .btn {
+    margin-left: 4px;
+  }
+  
+  .status-list li {
+    margin-bottom: 5px;
+    background: #eeeeee;
+  }
+  
+  .status-list i {
+    margin-right: 5px;
+  }
+  
+  .module-list {
+    border-radius: 0;
+    width: 100%;
+  }
+  
+  .module-list > .list-group {
+    border-left: 4px solid green;
+  }
+  
+  .breadcrumb {
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+  
+  .fa-bars {
+    margin-right: 10px;
+  }
+  
+  .fa-glasses {
+    margin-right: 3px;
+  }
+  
+  .fa-circle-check,
+  .fa-link {
+    color: rgb(3, 133, 3);
+    margin-right: 3px;
+  }
+
+  .home-container {
+    margin-left: 30px; 
+    margin-bottom: 20px
+  }
+
+  .course-modal{
+    margin: 10px;
+    color: red;
+    ;
+  }

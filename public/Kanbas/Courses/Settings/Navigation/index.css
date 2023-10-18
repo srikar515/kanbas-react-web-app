@@ -1,0 +1,11 @@
+small {
+    margin-left: 15px;
+  }
+  
+  .primary > .list-group-item > i {
+    margin-top: 5px;
+  }
+  
+  .secondary > .list-group-item > i {
+    margin-top: 13px;
+  }
