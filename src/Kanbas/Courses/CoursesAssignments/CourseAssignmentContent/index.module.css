@@ -1,0 +1,50 @@
+.main-content-control .btn {
+  margin-left: 4px;
+}
+
+.status-list li {
+  margin-bottom: 5px;
+  background: #eeeeee;
+}
+
+.status-list i {
+  margin-right: 5px;
+}
+
+.module-list > .list-group {
+  border-left: 4px solid green;
+}
+
+.fa-circle-check {
+  color: rgb(3, 133, 3);
+  margin-right: 40px;
+}
+
+.fa-book {
+  margin-right: 20px;
+  color: green;
+}
+
+.fa-plus,
+.fa-glasses {
+  margin-right: 3px;
+}
+
+.fa-bars {
+  margin-right: 10px;
+}
+
+.breadcrumb {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none !important;
+}
+
+.module-list {
+  border-radius: 0;
+}
