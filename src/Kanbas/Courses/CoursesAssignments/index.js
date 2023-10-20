@@ -1,6 +1,4 @@
-import CourseNavigation from '../CourseNavigation';
 import styles from '../../../index.css';
-import CourseTopNavBar from '../CoursesHome/CourseTopNavBar';
 import CourseAssignmentContent from './CourseAssignmentContent';
 
 const CoursesAssignments = () => {

@@ -12,13 +12,15 @@ import {
   FaXmark,
 } from 'react-icons/fa6';
 
-
 const CourseStatusSection = () => {
   return (
     <div class="status-content d-none d-lg-block" style={{ margin: '20px' }}>
       <h5>Course Status</h5>
 
-      <button class="btn" style={{ background: '#eeeeee' }}>
+      <button
+        className="btn"
+        style={{ background: '#eeeeee', marginRight: '5px' }}
+      >
         <FaBan style={{ marginRight: '3px' }}></FaBan>Unpublish
       </button>
       <button class="btn" style={{ background: '#82be5d' }}>
@@ -32,8 +34,8 @@ const CourseStatusSection = () => {
         ></FaCircleCheck>
         Published
       </button>
-      <ul class="list-group status-list" style={{ marginTop: '10px' }}>
-        <li class="list-group-item">
+      <ul className="list-group status-list" style={{ marginTop: '10px' }}>
+        <li className="list-group-item">
           <FaFileImport style={{ marginRight: '8px' }} />
           Import Existing Content
         </li>

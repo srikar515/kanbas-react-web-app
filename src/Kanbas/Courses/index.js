@@ -15,6 +15,7 @@ import CoursesHome from './CoursesHome';
 import CoursesModules from './CoursesModules';
 import CoursesAssignments from './CoursesAssignments';
 import CourseAssignmentEditor from './CoursesAssignments/CourseAssignmentEditor';
+import CourseHomeContent from "./CoursesHome/CourseHomeContent";
 
 
 function Courses() {
@@ -22,10 +23,7 @@ function Courses() {
   const { pathname } = useLocation();
   const [empty, kanbas, courses, id, screen] = pathname.split('/');
   const course = db.courses.find((course) => course._id === courseId);
-  const separatorStyle = {
-    color: 'gray',
-    margin: '0 5px',
-  };
+  
   return (
     <div>
         <div className="navigation-bar" style={{ marginTop: '10px' }}>
@@ -46,7 +44,7 @@ function Courses() {
                 {course.name}
               </Link>
             </li>
-            <span style={separatorStyle}> &gt; </span>
+            <span style={{ color: 'grey', margin: '0 5px' }}> &gt; </span>
             <li class="breadcrumb-item active" aria-current="page">
               <Link to={pathname} style={{ color: 'black' }}>
                 {screen}
@@ -62,7 +60,7 @@ function Courses() {
             <Routes>
                 <Route path="/" element={<Navigate to="Home" />} />
                 <Route path="Home" element={<CoursesHome />} />
-                <Route path="Modules" element={<CoursesModules />} />
+                <Route path="Modules" element={<CourseHomeContent />} />
                 <Route path="Piazza" element={<h1>Piazza</h1>} />
                 <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
                 <Route path="Assignments" element={<CoursesAssignments />} />

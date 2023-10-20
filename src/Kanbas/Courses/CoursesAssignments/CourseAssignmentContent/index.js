@@ -1,8 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../../../../index.css';
 import './index.module.css';
+import db from '../../../Database';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  FaBook,
+  FaCircleCheck,
+  FaEllipsisVertical,
+  FaPlus,
+} from 'react-icons/fa6';
+import { faGripVertical } from '@fortawesome/free-solid-svg-icons';
 
 const CourseAssignmentContent = () => {
+  const { courseId } = useParams();
+  const assignments = db.assignments;
+  const courseAssignments = assignments.filter(
+    (assignment) => assignment.course === courseId
+  );
   return (
     <div className="flex-grow-1" style={{ margin: '30px' }}>
       <div className="d-flex flex-row">
@@ -16,16 +30,18 @@ const CourseAssignmentContent = () => {
         <div className="d-flex float-end main-content-control">
           <div className="flex-grow-1"></div>
           <button className="btn" style={{ background: '#eeeeee' }}>
-            <i className="fa fa-plus"></i>Group
+            <FaPlus style={{ marginRight: '3px' }} />
+            Group
           </button>
           <button className="btn btn-danger">
-            <i className="fa fa-plus"></i>Module
+            <FaPlus style={{ marginRight: '3px' }} />
+            Module
           </button>
           <button
             className="btn"
             style={{ background: '#eeeeee', height: '38px' }}
           >
-            <i className="fa-solid fa-ellipsis-vertical"></i>
+            <FaEllipsisVertical />
           </button>
         </div>
       </div>
@@ -33,7 +49,10 @@ const CourseAssignmentContent = () => {
       <hr />
       <ul className="wd-flex-grow-1 list-group module-list">
         <li className="list-group-item list-group-item-secondary">
-          <i className="fa fa-grip-vertical" style={{ marginRight: '5px' }}></i>
+          <FontAwesomeIcon
+            icon={faGripVertical}
+            style={{ marginRight: '5px' }}
+          />
           <span>
             <strong>Assignments</strong>
           </span>
@@ -44,195 +63,53 @@ const CourseAssignmentContent = () => {
             >
               40% of Total
             </button>
-            <i className="fa-solid fa-plus" style={{ marginRight: '20px' }}></i>
-            <i className="fa fa-ellipsis-v"></i>
+            <FaPlus style={{ marginRight: '20px' }} />
+            <FaEllipsisVertical />
           </div>
         </li>
-        <ul className="list-group" style={{ borderRadius: '0' }}>
-          <ul className="list-group" style={{ borderRadius: '0' }}>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    to="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A1 SETUP
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 0 - SETUP - Week starting on Monday, September 5th
-                  (9/5/2022) Module |
-                </p>
-                <p>Due Sep 18, 2022 at 11:59pm | 100pts</p>
-              </div>
-
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    to="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A2 HTML
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 1 - HTML - Week starting on Monday, September 12th
-                  (9/12/2022) Module |
-                </p>
-                <p>Due Sep 25, 2022 at 11:59pm | 100pts</p>
-              </div>
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
+        <ul
+          className="list-group"
+          style={{ borderRadius: '0', borderLeft: '5px solid green' }}
+        >
+          {courseAssignments.map((assignment) => (
+            <li className="list-group-item" key={assignment._id}>
+              <div className="flex-container">
+                <div className="float-end">
+                  <FaCircleCheck
+                    style={{ color: 'green', marginRight: '10px' }}
+                  />
+                  <FaEllipsisVertical />
+                </div>
+                <FontAwesomeIcon
+                  icon={faGripVertical}
+                  style={{ marginRight: '20px' }}
+                />
+                <FaBook style={{ color: 'green', marginRight: '10px' }} />
+                <span style={{ display: 'inline' }}>
+                  <strong>
+                    <Link
+                      to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                      style={{ color: 'black' }}
+                    >
+                      <strong>{assignment.title}</strong>
+                    </Link>
+                  </strong>
+                </span>
+                <div
+                  style={{
+                    marginLeft: '70px',
+                    color: '#686464',
+                    width: '600px',
+                  }}
+                >
+                  <span style={{ fontSize: '15px', marginBottom: '1px' }}>
+                    {assignment?.description}
+                  </span>
+                  <p>{assignment.due}</p>
+                </div>
               </div>
             </li>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    a="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A3 CSS
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 2 - CSS - Week starting on Monday, September 19th
-                  (9/19/2022) Module |
-                </p>
-                <p>Due Oct 2, 2022 at 11:59pm | 100pts</p>
-              </div>
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    to="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A4 BOOTSTRAP
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 3-BOOTSTRAP - Week starting on Monday, September 26th
-                  (9/26/2022) Module |
-                </p>
-                <p>Due Oct 10, 2022 at 11:59pm | 100pts</p>
-              </div>
-
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    to="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A5 JAVASCRIPT
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 4 - JAVASCRIPT - Week starting on Monday, October 3rd
-                  (10/2/2022) Module |
-                </p>
-                <p>Due Oct 16, 2022 at 11:59pm | 100pts</p>
-              </div>
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <i
-                className="fa fa-grip-vertical"
-                style={{ marginRight: '20px' }}
-              ></i>
-              <i className="fa fa-book"></i>
-              <h6 style={{ display: 'inline' }}>
-                <strong>
-                  <Link
-                    to="/Kanbas/Courses/Assignments/AssignmentEditor"
-                    style={{ color: 'black' }}
-                  >
-                    A6 REACT
-                  </Link>
-                </strong>
-              </h6>
-              <div
-                style={{ marginLeft: '70px', color: '#686464', width: '600px' }}
-              >
-                <p style={{ fontSize: '15px', marginBottom: '1px' }}>
-                  Week - 5 - React and Routing - Week starting on Monday,
-                  October 10th (10/10/2022) Module |
-                </p>
-                <p>Due Oct 23, 2022 at 11:59pm | 100pts</p>
-              </div>
-              <div className="float-end">
-                <i className="fa-solid fa-circle-check"></i>
-                <i className="fa fa-ellipsis-v"></i>
-              </div>
-            </li>
-          </ul>
+          ))}
         </ul>
       </ul>
       <br />

@@ -4,7 +4,7 @@
       "name": "Week 0 - SETUP",
       "description": "CS4550.12631.202410",
       "course": "CS4550",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -27,7 +27,7 @@
       "name": "Week 1 - ENV + HTML",
       "description": "CS4550.12631.202410",
       "course": "CS4550",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -44,7 +44,7 @@
       "name": "Week 2 - BOOTSTRAP + CSS",
       "description": "CS4550.12631.202410",
       "course": "CS4550",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -61,7 +61,7 @@
       "name": "Week 0",
       "description": "CS5610.38921.202330",
       "course": "CS5610",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -78,7 +78,7 @@
       "name": "Week 1",
       "description": "CS5610.38921.202330",
       "course": "CS5610",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -95,7 +95,7 @@
       "name": "Week 0",
       "description": "CS4560.38921.202330",
       "course": "CS4560",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -112,7 +112,7 @@
       "name": "Week 1",
       "description": "CS4560.38921.202330",
       "course": "CS4560",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -129,7 +129,7 @@
       "name": "Week 0",
       "description": "CS5710.38921.202330",
       "course": "CS5710",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },
@@ -146,7 +146,7 @@
       "name": "Week 1",
       "description": "CS5710.38921.202330",
       "course": "CS5710",
-      "lessons": [
+      "learningObjectives": [
         {
           "name": "Introduction to the Course"
         },

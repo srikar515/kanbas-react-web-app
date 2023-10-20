@@ -1,18 +1,13 @@
 import { Dropdown } from 'react-bootstrap';
-import {
-  FaCircleCheck,
-  FaEllipsisVertical,
-  FaGripVertical,
-  FaPlus,
-} from 'react-icons/fa6';
+import { FaCircleCheck, FaEllipsisVertical, FaPlus } from 'react-icons/fa6';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import db from '../../../Database';
 import { useParams } from 'react-router';
 import React, { useState } from 'react';
 import {
-  faPlus,
   faCheckCircle,
   faEllipsisV,
+  faGripVertical,
 } from '@fortawesome/free-solid-svg-icons';
 
 const CourseHomeContent = () => {
@@ -29,10 +24,16 @@ const CourseHomeContent = () => {
   return (
     <div class="flex-grow-1" style={{ margin: '20px 30px' }}>
       <div class="d-flex float-end main-content-control">
-        <button class="btn" style={{ background: '#eeeeee' }}>
+        <button
+          class="btn"
+          style={{ background: '#eeeeee', marginRight: '5px' }}
+        >
           Collapse All
         </button>
-        <button class="btn" style={{ background: '#eeeeee' }}>
+        <button
+          class="btn"
+          style={{ background: '#eeeeee', marginRight: '5px' }}
+        >
           View Progress
         </button>
 
@@ -42,6 +43,7 @@ const CourseHomeContent = () => {
               background: '#eeeeee',
               color: 'black',
               borderStyle: 'none',
+              marginRight: '5px',
             }}
             id="dropdown-basic"
           >
@@ -63,7 +65,7 @@ const CourseHomeContent = () => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" style={{ marginRight: '5px' }}>
           <FaPlus style={{ marginRight: '3px' }}></FaPlus>Module
         </button>
         <button class="btn" style={{ background: '#eeeeee', height: '38px' }}>
@@ -82,6 +84,10 @@ const CourseHomeContent = () => {
                 onClick={() => toggleModule(index)}
               >
                 <div className="flex-container">
+                  <FontAwesomeIcon
+                    icon={faGripVertical}
+                    style={{ marginRight: '10px' }}
+                  />
                   {module.name}
                   <div className="float-end">
                     <FontAwesomeIcon
@@ -98,10 +104,18 @@ const CourseHomeContent = () => {
               </li>
 
               {expandedModules[index] &&
-                module.lessons &&
-                module.lessons.map((lesson, lessonIndex) => (
-                  <li key={lessonIndex} className="list-group-item ms-3">
+                module.learningObjectives &&
+                module.learningObjectives.map((lesson, lessonIndex) => (
+                  <li
+                    key={lessonIndex}
+                    className="list-group-item"
+                    style={{ borderLeft: '5px green solid' }}
+                  >
                     <div className="flex-container">
+                      <FontAwesomeIcon
+                        icon={faGripVertical}
+                        style={{ marginRight: '10px' }}
+                      />
                       {lesson.name}
                       <div className="float-end">
                         <FontAwesomeIcon
