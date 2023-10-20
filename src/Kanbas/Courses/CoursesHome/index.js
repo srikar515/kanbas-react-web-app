@@ -9,10 +9,8 @@ const CoursesHome = () => {
   return (
     <div className="d-flex flex-row">
       <div className="flex-grow-1">
-        <CourseTopNavBar />
         <div className={styles.wd_flex_row_container}>
           <div className="d-flex">
-            <CourseNavigation />
             <CourseHomeContent />
             <CourseStatusSection />
           </div>

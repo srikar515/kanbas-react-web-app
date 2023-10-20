@@ -4,10 +4,7 @@ import './index.module.css';
 
 const CourseAssignmentContent = () => {
   return (
-    <div
-      className="flex-grow-1"
-      style={{ marginLeft: '30px', marginRight: '30px' }}
-    >
+    <div className="flex-grow-1" style={{ margin: '30px' }}>
       <div className="d-flex flex-row">
         <div className="search flex-grow-1">
           <input

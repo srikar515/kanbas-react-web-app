@@ -7,7 +7,6 @@ import styles from '../../../../index.css';
 const CourseAssignmentEditor = () => {
   return (
     <div className="d-flex flex-row">
-      <KanbasNavigation />
       <div className="flex-grow-1">
         <CourseTopNavBar />
         <div className={styles.wd_flex_row_container}>
