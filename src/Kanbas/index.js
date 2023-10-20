@@ -25,7 +25,7 @@ function Kanbas() {
           <Route path="Courses/:courseId/*" element={<Courses />} />
           <Route path="Calendar" element={<Calendar />} />
           <Route path="Commons" element={<Commons />} />
-          <Route path="Courses/" element={<CoursesHome />} />
+          <Route path="Courses/" element={<h1>Courses</h1>} />
           <Route path="Courses/Modules" element={<CoursesModules />} />
           <Route path="Courses/Assignments" element={<CoursesAssignments />} />
           <Route
