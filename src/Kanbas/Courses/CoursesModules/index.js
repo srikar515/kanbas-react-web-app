@@ -1,26 +1,21 @@
 import { Dropdown } from 'react-bootstrap';
 import { FaCircleCheck, FaEllipsisVertical, FaPlus } from 'react-icons/fa6';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import db from '../../Database';
 import { useParams } from 'react-router';
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
-  faCheckCircle,
-  faEllipsisV,
-  faGripVertical,
-} from '@fortawesome/free-solid-svg-icons';
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from './modulesReducer';
 
 const CoursesModules = () => {
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+  const dispatch = useDispatch();
   const { courseId } = useParams();
-  const modules = db.modules;
-  const [expandedModules, setExpandedModules] = useState({});
 
-  const toggleModule = (index) => {
-    setExpandedModules((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }));
-  };
   return (
     <div class="flex-grow-1" style={{ margin: '20px 30px' }}>
       <div class="d-flex float-end main-content-control">
@@ -67,64 +62,78 @@ const CoursesModules = () => {
       </div>
       <br />
       <hr />
-      <ul className="list-group module-list">
-        {modules
-          .filter((module) => module.course === courseId)
-          .map((module, index) => (
-            <div key={index}>
-              <li
-                className="list-group-item list-group-item-secondary"
-                onClick={() => toggleModule(index)}
-              >
-                <div className="flex-container">
-                  <FontAwesomeIcon
-                    icon={faGripVertical}
-                    style={{ marginRight: '10px' }}
-                  />
-                  {module.name}
-                  <div className="float-end">
-                    <FontAwesomeIcon
-                      icon={faCheckCircle}
-                      style={{ color: 'green', marginRight: '8px' }}
-                    />
-                    {expandedModules[index] ? '-' : '+'}
-                    <FontAwesomeIcon
-                      icon={faEllipsisV}
-                      style={{ color: '#787878', marginLeft: '8px' }}
-                    />
-                  </div>
-                </div>
-              </li>
+      <h4>Add/Update a Module</h4>
+      <div className="row">
+        <div className="col">
+          <input
+            value={module.name}
+            placeholder="Enter the Module Name"
+            className="form-control"
+            onChange={(e) =>
+              dispatch(setModule({ ...module, name: e.target.value }))
+            }
+          />
+        </div>
+      </div>
+      <br />
+      <div className="row">
+        <div className="col">
+          <textarea
+            value={module.description}
+            placeholder="Enter the Module Description"
+            className="form-control"
+            onChange={(e) =>
+              dispatch(setModule({ ...module, description: e.target.value }))
+            }
+          />
+        </div>
+      </div>
+      <div style={{ marginTop: '5px' }}>
+        <button
+          className="btn btn-success"
+          onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+          style={{ marginRight: '5px' }}
+        >
+          Add
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => dispatch(updateModule(module))}
+        >
+          Update
+        </button>
+      </div>
 
-              {expandedModules[index] &&
-                module.learningObjectives &&
-                module.learningObjectives.map((lesson, lessonIndex) => (
-                  <li
-                    key={lessonIndex}
-                    className="list-group-item"
-                    style={{ borderLeft: '5px green solid' }}
+      <br />
+
+      <ul className="list-group module-list">
+        {modules.map((module, index) => (
+          <div key={index}>
+            <li className="list-group-item" style={{ height: '100px' }}>
+              <div className="flex-container">
+                <div className="float-end">
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => dispatch(setModule(module))}
+                    style={{ marginLeft: '10px' }}
                   >
-                    <div className="flex-container">
-                      <FontAwesomeIcon
-                        icon={faGripVertical}
-                        style={{ marginRight: '10px' }}
-                      />
-                      {lesson.name}
-                      <div className="float-end">
-                        <FontAwesomeIcon
-                          icon={faCheckCircle}
-                          style={{ color: 'green', marginRight: '8px' }}
-                        />
-                        <FontAwesomeIcon
-                          icon={faEllipsisV}
-                          style={{ color: '#787878' }}
-                        />
-                      </div>
-                    </div>
-                  </li>
-                ))}
-            </div>
-          ))}
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() => dispatch(deleteModule(module._id))}
+                    className="btn btn-danger"
+                    style={{ marginLeft: '10px' }}
+                  >
+                    Delete
+                  </button>
+                </div>
+                {module.name}
+                <p>{module.description}</p>
+              </div>
+            </li>
+          </div>
+        ))}
       </ul>
     </div>
   );
