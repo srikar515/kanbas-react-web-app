@@ -1,0 +1,18 @@
+.course-flex{
+    display: flex;
+}
+
+.course-link{
+    color: red;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.course-title{
+    display: inline-block;
+    padding-top:2px;
+    padding-left: 10px;
+}
+
+.bar-icon{
+    margin-bottom: 8px;
+}

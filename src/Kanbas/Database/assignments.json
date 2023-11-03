@@ -1,0 +1,170 @@
+[
+    {
+      "_id": "A1",
+      "title": "Assignment 1",
+      "course": "CS4550",
+      "description": "Week - 0 - SETUP - Week starting on Monday, September 5th (9/5/2022) Module ",
+      "due": "Due Sep 18, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A2",
+      "title": "Assignment 2",
+      "course": "CS4550",
+      "description": "Week - 1 - HTML - Week starting on Monday, September 12th (9/12/2022) Module ",
+      "due": "Due Sep 25, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A3",
+      "title": "Assignment 3",
+      "course": "CS4550",
+      "description": "Week - 2 - CSS - Week starting on Monday, September 19th (9/19/2022) Module ",
+      "due": "Due Oct 2, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A4",
+      "title": "Assignment 4",
+      "course": "CS4550",
+      "description": "Week - 3-BOOTSTRAP - Week starting on Monday, September 26th (9/26/2022) Module ",
+      "due": "Due Oct 10, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A5",
+      "title": "Assignment 5",
+      "course": "CS4550",
+      "description": "Week - 4 - JAVASCRIPT - Week starting on Monday, October 3rd (10/2/2022) Module",
+      "due": "Due Oct 16, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A6",
+      "title": "Assignment 6",
+      "course": "CS4550",
+      "description": "Week - 5 - React and Routing - Week starting on Monday, October 10th (10/10/2022) Module  ",
+      "due": "Due Oct 23, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A1",
+      "title": "Assignment 1",
+      "course": "CS5610",
+      "description": "Week - 0 - SETUP - Week starting on Monday, September 5th (9/5/2022) Module ",
+      "due": "Due Sep 18, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A2",
+      "title": "Assignment 2",
+      "course": "CS5610",
+      "description": "Week - 1 - HTML - Week starting on Monday, September 12th (9/12/2022) Module ",
+      "due": "Due Sep 25, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A3",
+      "title": "Assignment 3",
+      "course": "CS5610",
+      "description": "Week - 2 - CSS - Week starting on Monday, September 19th (9/19/2022) Module ",
+      "due": "Due Oct 2, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A4",
+      "title": "Assignment 4",
+      "course": "CS5610",
+      "description": "Week - 3-BOOTSTRAP - Week starting on Monday, September 26th (9/26/2022) Module ",
+      "due": "Due Oct 10, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A5",
+      "title": "Assignment 5",
+      "course": "CS5610",
+      "description": "Week - 4 - JAVASCRIPT - Week starting on Monday, October 3rd (10/2/2022) Module",
+      "due": "Due Oct 16, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A6",
+      "title": "Assignment 6",
+      "course": "CS5610",
+      "description": "Week - 5 - React and Routing - Week starting on Monday, October 10th (10/10/2022) Module  ",
+      "due": "Due Oct 23, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A1",
+      "title": "Assignment 1",
+      "course": "CS4560",
+      "description": "Week - 0 - SETUP - Week starting on Monday, September 5th (9/5/2022) Module ",
+      "due": "Due Sep 18, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A2",
+      "title": "Assignment 2",
+      "course": "CS4560",
+      "description": "Week - 1 - HTML - Week starting on Monday, September 12th (9/12/2022) Module ",
+      "due": "Due Sep 25, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A3",
+      "title": "Assignment 3",
+      "course": "CS4560",
+      "description": "Week - 2 - CSS - Week starting on Monday, September 19th (9/19/2022) Module ",
+      "due": "Due Oct 2, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A4",
+      "title": "Assignment 4",
+      "course": "CS4560",
+      "description": "Week - 3-BOOTSTRAP - Week starting on Monday, September 26th (9/26/2022) Module ",
+      "due": "Due Oct 10, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A5",
+      "title": "Assignment 5",
+      "course": "CS4560",
+      "description": "Week - 4 - JAVASCRIPT - Week starting on Monday, October 3rd (10/2/2022) Module",
+      "due": "Due Oct 16, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A6",
+      "title": "Assignment 6",
+      "course": "CS4560",
+      "description": "Week - 5 - React and Routing - Week starting on Monday, October 10th (10/10/2022) Module  ",
+      "due": "Due Oct 23, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A1",
+      "title": "Assignment 1",
+      "course": "CS5710",
+      "description": "Week - 0 - SETUP - Week starting on Monday, September 5th (9/5/2022) Module ",
+      "due": "Due Sep 18, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A2",
+      "title": "Assignment 2",
+      "course": "CS5710",
+      "description": "Week - 1 - HTML - Week starting on Monday, September 12th (9/12/2022) Module ",
+      "due": "Due Sep 25, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A3",
+      "title": "Assignment 3",
+      "course": "CS5710",
+      "description": "Week - 2 - CSS - Week starting on Monday, September 19th (9/19/2022) Module ",
+      "due": "Due Oct 2, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A4",
+      "title": "Assignment 4",
+      "course": "CS5710",
+      "description": "Week - 3-BOOTSTRAP - Week starting on Monday, September 26th (9/26/2022) Module ",
+      "due": "Due Oct 10, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A5",
+      "title": "Assignment 5",
+      "course": "CS5710",
+      "description": "Week - 4 - JAVASCRIPT - Week starting on Monday, October 3rd (10/2/2022) Module",
+      "due": "Due Oct 16, 2022 at 11:59pm | 100pts"
+    },
+    {
+      "_id": "A6",
+      "title": "Assignment 6",
+      "course": "CS5710",
+      "description": "Week - 5 - React and Routing - Week starting on Monday, October 10th (10/10/2022) Module  ",
+      "due": "Due Oct 23, 2022 at 11:59pm | 100pts"
+    }
+  ]  

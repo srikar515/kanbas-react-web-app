@@ -1,0 +1,31 @@
+.main-content-control .btn {
+  margin-left: 4px;
+}
+
+.status-list li {
+  margin-bottom: 5px;
+  background: #eeeeee;
+}
+
+.status-list i {
+  margin-right: 5px;
+}
+
+.module-list > .list-group {
+  border-left: 4px solid green;
+}
+
+.breadcrumb {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none !important;
+}
+
+.module-list {
+  border-radius: 0;
+}
