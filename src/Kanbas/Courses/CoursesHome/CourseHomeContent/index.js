@@ -11,7 +11,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const CourseHomeContent = () => {
-  const { courseId } = useParams();
   const modules = db.modules;
   const [expandedModules, setExpandedModules] = useState({});
 
@@ -75,63 +74,27 @@ const CourseHomeContent = () => {
       <br />
       <hr />
       <ul className="list-group module-list">
-        {modules
-          .filter((module) => module.course === courseId)
-          .map((module, index) => (
-            <div key={index}>
-              <li
-                className="list-group-item list-group-item-secondary"
-                onClick={() => toggleModule(index)}
-              >
-                <div className="flex-container">
+        {modules.map((module, index) => (
+          <div key={index}>
+            <li className="list-group-item" onClick={() => toggleModule(index)}>
+              <div className="flex-container">
+                {module.name}
+                <br />
+                {module.description}
+                <div className="float-end">
                   <FontAwesomeIcon
-                    icon={faGripVertical}
-                    style={{ marginRight: '10px' }}
+                    icon={faCheckCircle}
+                    style={{ color: 'green', marginRight: '8px' }}
                   />
-                  {module.name}
-                  <div className="float-end">
-                    <FontAwesomeIcon
-                      icon={faCheckCircle}
-                      style={{ color: 'green', marginRight: '8px' }}
-                    />
-                    {expandedModules[index] ? '-' : '+'}
-                    <FontAwesomeIcon
-                      icon={faEllipsisV}
-                      style={{ color: '#787878', marginLeft: '8px' }}
-                    />
-                  </div>
+                  <FontAwesomeIcon
+                    icon={faEllipsisV}
+                    style={{ color: '#787878', marginLeft: '8px' }}
+                  />
                 </div>
-              </li>
-
-              {expandedModules[index] &&
-                module.learningObjectives &&
-                module.learningObjectives.map((lesson, lessonIndex) => (
-                  <li
-                    key={lessonIndex}
-                    className="list-group-item"
-                    style={{ borderLeft: '5px green solid' }}
-                  >
-                    <div className="flex-container">
-                      <FontAwesomeIcon
-                        icon={faGripVertical}
-                        style={{ marginRight: '10px' }}
-                      />
-                      {lesson.name}
-                      <div className="float-end">
-                        <FontAwesomeIcon
-                          icon={faCheckCircle}
-                          style={{ color: 'green', marginRight: '8px' }}
-                        />
-                        <FontAwesomeIcon
-                          icon={faEllipsisV}
-                          style={{ color: '#787878' }}
-                        />
-                      </div>
-                    </div>
-                  </li>
-                ))}
-            </div>
-          ))}
+              </div>
+            </li>
+          </div>
+        ))}
       </ul>
     </div>
   );

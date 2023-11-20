@@ -4,12 +4,24 @@ import db from '../../../Database';
 import { FaCircleCheck, FaEllipsisVertical } from 'react-icons/fa6';
 import { useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+} from '../assignmentsReducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CourseAssignmentEditor = () => {
-  const { assignmentId, courseId } = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments
   );
+  const assignment = useSelector(
+    (state) => state.assignmentsReducer.assignment
+  );
+  const dispatch = useDispatch();
+
+  const { assignmentId, courseId } = useParams();
 
   const navigate = useNavigate();
   const handleSave = () => {
@@ -43,239 +55,99 @@ const CourseAssignmentEditor = () => {
               </div>
             </div>
             <div className="mb-3">
-              <label className="form-label">Assignment Name</label>
               <input
                 type="text"
                 className="form-control"
                 value={assignment.title}
+                placeholder="Enter title"
+                onChange={(e) =>
+                  dispatch(
+                    setAssignment({ ...assignment, title: e.target.value })
+                  )
+                }
               />
             </div>
             <div className="mb-3">
-              <textarea className="form-control" rows="3">
-                {assignment.description}
-              </textarea>
+              <textarea
+                value={assignment.description}
+                placeholder="Enter the Assignment Description"
+                className="form-control"
+                onChange={(e) =>
+                  dispatch(
+                    setAssignment({
+                      ...assignment,
+                      description: e.target.value,
+                    })
+                  )
+                }
+              />
             </div>
             <div className="container">
               <div className="row">
                 <div className="col-2">Points</div>
                 <div className="col-6">
-                  <input type="text" className="form-control" value="100" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={assignment.points}
+                    placeholder="Enter the points"
+                    onChange={(e) =>
+                      dispatch(
+                        setAssignment({
+                          ...assignment,
+                          points: e.target.value,
+                        })
+                      )
+                    }
+                  />
                 </div>
               </div>
               <br />
+
               <div className="row">
-                <div className="col-2">Assignment Group</div>
+                <div className="col-2">Due</div>
                 <div className="col-6">
-                  <select className="form-select">
-                    <option>Assignments</option>
-                    <option>Quizzes</option>
-                    <option>Exams</option>
-                    <option>Project</option>
-                  </select>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Display Grade as</div>
-                <div className="col-6">
-                  <select className="form-select">
-                    <option>Percentage</option>
-                    <option>Marks</option>
-                    <option>GPA</option>
-                  </select>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2"></div>
-                <div className="col-6">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label">
-                      Don't count this assignment towards the final grade
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Submission Type</div>
-                <div className="col-6">
-                  <select className="form-select">
-                    <option>Online</option>
-                    <option>Offline</option>
-                  </select>
-                  <br />
-                  <strong>Online Entry Options</strong>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label"> Text Entry </label>
-                  </div>
-                  <br />
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      checked
-                    />
-                    <label className="form-check-label"> Website URL </label>
-                  </div>
-                  <br />
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      checked
-                    />
-                    <label className="form-check-label">
-                      {' '}
-                      Media Recordings{' '}
-                    </label>
-                  </div>
-                  <br />
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label">
-                      {' '}
-                      Student Annotation{' '}
-                    </label>
-                  </div>
-                  <br />
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label"> File Uploads </label>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Submission Attempts</div>
-                <div className="col-6">
-                  <select className="form-select">
-                    <option>Unlimited</option>
-                    <option>Limited</option>
-                    <option>None</option>
-                  </select>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Plaigarism Review</div>
-                <div className="col-6">
-                  <select className="form-select">
-                    <option>None</option>
-                    <option>Yes</option>
-                    <option>Done</option>
-                  </select>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Group Assignment</div>
-                <div className="col-6">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label">
-                      This is a group assignment
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Peer Reviews</div>
-                <div className="col-6">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label">
-                      {' '}
-                      Require Peer Reviews{' '}
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-2">Assign</div>
-                <div className="col-6">
-                  Assign To
-                  <select className="form-select">
-                    <option selected>Everyone</option>
-                    <option>Yes</option>
-                    <option>Done</option>
-                  </select>
-                  <br />
-                  Due
-                  <input type="date" className="form-control" />
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={assignment.dueDate}
+                  />
                   <br />
                   <div className="row">
                     <div className="col-3">
-                      Available From{' '}
-                      <input type="date" className="form-control" />
+                      Available From
+                      <input
+                        type="date"
+                        className="form-control"
+                        value={assignment.availableFrom}
+                      />
                     </div>
                     <div className="col-3">
-                      Until
-                      <input type="date" className="form-control" />
+                      Available Until
+                      <input
+                        type="date"
+                        className="form-control"
+                        value={assignment.availableUntil}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
               <br />
               <hr />
-              <div className="row">
-                <div className="col-6">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                    />
-                    <label className="form-check-label">
-                      Notify users that this content has changed.
-                    </label>
-                  </div>
-                </div>
-                <div className="col-6 float-end">
-                  <button className="btn">
-                    <Link
-                      to={`/Kanbas/Courses/${courseId}/Assignments`}
-                      className="btn btn-secondary"
-                    >
-                      Cancel
-                    </Link>
-                  </button>
-                  <button className="btn btn-danger" onClick={handleSave}>
-                    Save
-                  </button>
-                </div>
+              <div className="col float-end">
+                <button className="btn">
+                  <Link
+                    to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    className="btn btn-secondary"
+                  >
+                    Cancel
+                  </Link>
+                </button>
+                <button className="btn btn-danger" onClick={handleSave}>
+                  Save
+                </button>
               </div>
-              <br />
             </div>
           </div>
         </div>
