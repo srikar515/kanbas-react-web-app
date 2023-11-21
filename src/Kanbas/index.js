@@ -13,13 +13,14 @@ import CoursesHome from './Courses/CoursesHome';
 import CoursesModules from './Courses/CoursesModules';
 import CoursesAssignments from './Courses/CoursesAssignments';
 import CourseAssignmentEditor from './Courses/CoursesAssignments/CourseAssignmentEditor';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import db from './Database';
 import store from './store';
 import { Provider } from 'react-redux';
+import axios from "axios";
 
 function Kanbas() {
-  const [courses, setCourses] = useState(db.courses);
+  const [courses, setCourses] = useState([]);
   const [course, setCourse] = useState({
     name: '',
     number: '',
@@ -28,9 +29,25 @@ function Kanbas() {
     endDate: '',
     image: '',
   });
-  const addNewCourse = () => {
-    setCourses([...courses, { ...course, _id: new Date().getTime() }]);
+
+  const URL = "http://localhost:4000/api/courses";
+  const findAllCourses = async () => {
+    const response = await axios.get(URL);
+    setCourses(response.data);
   };
+  useEffect(() => {
+    findAllCourses();
+  }, []);
+
+  const addNewCourse = async () => {
+    const response = await axios.post(URL, course);
+    setCourses([
+      response.data,
+      ...courses,
+    ]);
+    setCourse({ name: "" });
+  };
+
 
   const deleteCourse = (courseId) => {
     setCourses(courses.filter((course) => course._id !== courseId));
