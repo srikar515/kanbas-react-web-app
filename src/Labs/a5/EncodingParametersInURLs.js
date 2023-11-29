@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+const API_BASE = process.env.REACT_APP_API_BASE;
+const URL = API_BASE?.substring(0,API_BASE.length - 3) + 'a5';
 function EncodingParametersInURLs() {
   const [a, setA] = useState(34);
   const [b, setB] = useState(23);
   const [welcome, setWelcome] = useState('');
 
   const fetchWelcome = async () => {
-    const response = await axios.get('http://localhost:4000/a5/welcome');
+    const response = await axios.get(`${URL}/welcome`);
     setWelcome(response.data);
   };
 
   const [result, setResult] = useState(0);
   const fetchSum = async (a, b) => {
-    const response = await axios.get(`http://localhost:4000/a5/add/${a}/${b}`);
+    const response = await axios.get(`${URL}/add/${a}/${b}`);
     setResult(response.data);
   };
 
   const fetchSubtraction = async (a, b) => {
     const response = await axios.get(
-      `http://localhost:4000/a5/subtract/${a}/${b}`
+      `${URL}/subtract/${a}/${b}`
     );
     setResult(response.data);
   };
@@ -68,26 +69,26 @@ function EncodingParametersInURLs() {
       </button>
       <h3 className={'mt-2'}>Path Parameters</h3>
       <a
-        href={`http://localhost:4000/a5/add/${a}/${b}`}
+        href={`${URL}/add/${a}/${b}`}
         className="btn btn-primary me-2"
       >
         Add {a} + {b}
       </a>
       <a
-        href={`http://localhost:4000/a5/subtract/${a}/${b}`}
+        href={`${URL}/subtract/${a}/${b}`}
         className="btn btn-danger"
       >
         Subtract {a} - {b}
       </a>
       <h3 className={'mt-2'}>Query Parameters</h3>
       <a
-        href={`http://localhost:4000/a5/calculator?operation=add&a=${a}&b=${b}`}
+        href={`${URL}/calculator?operation=add&a=${a}&b=${b}`}
         className="btn btn-primary me-2"
       >
         Add {a} + {b}
       </a>
       <a
-        href={`http://localhost:4000/a5/calculator?operation=subtract&a=${a}&b=${b}`}
+        href={`${URL}/calculator?operation=subtract&a=${a}&b=${b}`}
         className="btn btn-danger"
       >
         Subtract {a} - {b}

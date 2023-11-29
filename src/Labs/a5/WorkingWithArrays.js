@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const API_BASE = process.env.REACT_APP_API_BASE;
+const URL = API_BASE?.substring(0,API_BASE.length - 3) + 'a5';
 function WorkingWithArrays() {
-  const API = 'http://localhost:4000/a5/todos';
+  const API = `${URL}/todos`;
   const [id, setId] = useState(0);
   const [todo, setTodo] = useState({
     id: 1,
