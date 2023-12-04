@@ -1,7 +1,7 @@
 import KanbasNavigation from './KanbasNavigation';
 import Dashboard from './Dashboard';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Profile from './Account/Profile';
+import Profile from './Profile';
 import Calendar from './Calendar';
 import Commons from './Commons';
 import Help from './Help';
@@ -13,6 +13,10 @@ import CoursesHome from './Courses/CoursesHome';
 import CoursesModules from './Courses/CoursesModules';
 import CoursesAssignments from './Courses/CoursesAssignments';
 import CourseAssignmentEditor from './Courses/CoursesAssignments/CourseAssignmentEditor';
+import Signin from './Users/signin';
+import Account from './Users/account';
+import UserTable from './Users/table';
+import Signup from './Users/signup';
 import { useState,useEffect } from 'react';
 import db from './Database';
 import store from './store';
@@ -71,7 +75,7 @@ function Kanbas() {
         <div className="flex-grow-1">
           <Routes>
             <Route path="/" element={<Navigate to="Dashboard" />} />
-            <Route path="Account" element={<Profile />} />
+            <Route path="Profile" element={<Profile />} />
             <Route
               path="Dashboard"
               element={
@@ -96,6 +100,11 @@ function Kanbas() {
             <Route path="History" element={<History />} />
             <Route path="Inbox" element={<Inbox />} />
             <Route path="Studio" element={<Studio />} />
+            <Route path="signin" element={<Signin />} />
+            <Route path="account" element={<Account />} />
+            <Route path="account/:id" element={<Account />} />
+            <Route path="users" element={<UserTable />} />
+            <Route path="signup" element={<Signup />} />
           </Routes>
         </div>
       </div>
